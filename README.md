@@ -3,8 +3,8 @@ Mark JS
 
 
 ## Description
-
-A simple tool to highlight occurences of text on a page, based on MarkJS.
+If you want to show hierarchical data in a dropdown selector, this is the widget for you!
+This widget groups dropdown values by a specified reference and displays group labels in the dropdown.
 
 ## Features:
 - Group options in a select list
@@ -18,7 +18,6 @@ A simple tool to highlight occurences of text on a page, based on MarkJS.
 
 - [Mendix 6.x or higher](https://appstore.mendix.com/).
 
-
 ## Configuration
 
 Add the .mpk in dist to your project or build it yourself using:
@@ -28,6 +27,3 @@ gulp build
 ```
 
 Add the widget to a dataview. Select the attribute that you want to create a dropdown for. Select an association to group by.
-
-## Properties
-
