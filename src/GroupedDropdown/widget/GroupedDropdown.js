@@ -235,7 +235,8 @@ define([
                     this.selectnode.value = selected; //Can selected ever be null or undefined? 
                 }
                 else if (this._attrVisible){
-                    this.viewnode.innerHTML = this._options[selected].get(this.optionAttr); // XSS vector?
+                    var displayString = selected.length ? mxDom.escapeString(this._options[selected].get(this.optionAttr)) : "";
+                    this.viewnode.innerHTML = selected.length ?  : displayString;
                 }
             }
         },
