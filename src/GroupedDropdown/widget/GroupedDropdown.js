@@ -9,7 +9,6 @@ define([
     "mxui/dom",
     "dojo/_base/lang",
     "dojo/_base/array",
-    "dojo/dom",
     "dojo/dom-construct",
     "dojo/dom-class",
     "dojo/on",   
@@ -17,7 +16,7 @@ define([
     "dojo/text!GroupedDropdown/widget/template/GroupedDropdown.html"
 
     ], 
-    function (declare, _WidgetBase, _TemplatedMixin, mxDom, lang, dojoArray, dojoDom, domConstruct, domClass, on, template) {
+    function (declare, _WidgetBase, _TemplatedMixin, mxDom, lang, dojoArray, domConstruct, domClass, on, template) {
 
     // Declare widget"s prototype.
     return declare("GroupedDropdown.widget.GroupedDropdown", [_WidgetBase, _TemplatedMixin], {
