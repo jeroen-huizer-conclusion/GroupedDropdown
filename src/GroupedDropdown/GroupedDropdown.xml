@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="GroupedDropdown.widget.GroupedDropdown" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ widget.xsd">
+    <name>GroupedDropdown</name>
+    <description>Select input with grouped options</description>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABxElEQVQ4T63US6hOURjG8d9xHygRYUK5leSSlPEpJaQwEYUYmYiBAQYmdCKJzuzUiQwkAwbCyICJiUzcihFDlzIwcunQo7Wzzm5/vlOsyd5rr3f99/M+77vWgP88BvrwpmItFuEn3uEZfvTa1wu4AKewH7Namz/jGobwsQ3uAm7Bdczuo/4T9uBBHdcGBnYHU6qgb7iNydiB2NCMrG2roTUwab7qUJYN9wthZ4HXoqJ0JfJUA4dxpMOvOa1vXzCz9e0ijtfApBGD2wUYw5JS3cQvw5uWkHyPuvkYaxRuwJMeRYgNZzEJp7GiR9waPG+Au3DrH3t8O+42wLbZj3ET+euhKsVYMIqX2IuNlYhxwPV4WhaT4jp8L/MLjeE4U9LO0vSkiOUlbjVeNArTdx9Ky4zgcPXnrbhX5oN4WK1dwcGyd2FdlMRcwjG8LqmmaTMu42h5P4eT5X1GFGEpzuNEuw/nlcaeWyoeD3Mx7KsU5YLIOY6HOXax6n1p7JzxcY2d+aaS3rQJVvwrNuNRE991OQR6A1H6txFlu2tYl8IGEFg8OdABTvGuFt9+p1mPfhdsTscqLC6b3haf04+dox9wglb+CfsF60FWFc6tth8AAAAASUVORK5CYII=</icon>
+    <properties>
+
+        <property key="fieldLabel" type="string" defaultValue="" required="false">
+            <caption>Field label</caption>
+            <category>Basic</category>
+            <description>Label for the field.</description>
+        </property>
+
+        <property key="optionEntity" type="entity" required="true" isPath="yes" pathType="reference">
+            <caption>Option entity</caption>
+            <category>Basic</category>
+            <description>The entity that you will select, i.e. the options.</description>
+        </property>
+
+        <property key="optionAttr" type="attribute" entityProperty="optionEntity" required="true">
+            <caption>Option Label</caption>
+            <category>Basic</category>
+            <description>The attribute to use as label for the option. Strings only here.</description>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+
+        <property key="groupEntity" type="entity" required="true" entityProperty="optionEntity" isPath="yes" pathType="reference">
+            <caption>Groupentity</caption>
+            <category>Basic</category>
+            <description>The entity used to group by.</description>
+        </property>
+
+        <property key="groupAttr" type="attribute" entityProperty="groupEntity" required="true">
+            <caption>Group Label</caption>
+            <category>Basic</category>
+            <description>The attribute to use as label for the group. Strings only here.</description>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+
+    </properties>
+</widget>
