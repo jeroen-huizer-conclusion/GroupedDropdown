@@ -235,7 +235,7 @@ define([
                 }
                 else if (this._attrVisible){
                     var displayString = selected.length ? mxDom.escapeString(this._options[selected].get(this.optionAttr)) : "";
-                    this.viewnode.innerHTML = selected.length ?  : displayString;
+                    this.viewnode.innerHTML = displayString;
                 }
             }
         },
