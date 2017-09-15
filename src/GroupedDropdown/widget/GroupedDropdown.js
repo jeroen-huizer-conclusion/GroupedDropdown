@@ -191,14 +191,14 @@ define([
             }
         },
 
-        _renderReadOnly(){
+        _renderReadOnly: function(){
             if(this.selectnode){
                 domConstruct.destroy(this.selectnode);
             }
             this._updateRendering();
         },
 
-        _renderEditable(){
+        _renderEditable: function(){
             if(this.viewnode){
                 domConstruct.destroy(this.viewnode);
             }
