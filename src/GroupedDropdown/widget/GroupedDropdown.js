@@ -1,4 +1,4 @@
-/* global define, require, logger, mx, */ 
+/* global define, require, logger, mx, */
 "use strict";
 
 define([
@@ -11,25 +11,25 @@ define([
     "dojo/_base/array",
     "dojo/dom-construct",
     "dojo/dom-class",
-    "dojo/on",   
+    "dojo/on",
 
     "dojo/text!GroupedDropdown/widget/template/GroupedDropdown.html"
 
-    ], 
+    ],
     function (declare, _WidgetBase, _TemplatedMixin, mxDom, lang, dojoArray, domConstruct, domClass, on, template) {
 
     // Declare widget"s prototype.
     return declare("GroupedDropdown.widget.GroupedDropdown", [_WidgetBase, _TemplatedMixin], {
 
         //var widgetid = Math.floor(Math.random()*100000+1).toString(10);
-        
-        // Templated 
+
+        // Templated
         templateString: template,
         widgetid: '',
         _setWidgetidAttr: function(){
             //Parse the id into the template
             var id = Math.floor(Math.random()*100000+1);
-            
+
             this.widgetid = "GroupedDropdown_"+id.toString(10);
             this.selectnode.id = this.widgetid+"_select";
             this.labelnode.htmlFor = this.widgetid+"_label";
@@ -40,13 +40,13 @@ define([
         //Widget variables
         fieldLabel: '',              // label for the field
         optionEntity: '',            // entity to use as options, referenced from context.
-        optionAttr: '',              // attribute of optionEntity to use as label        
+        optionAttr: '',              // attribute of optionEntity to use as label
         groupEntity: '',             // entity to group options by, referenced from optionEntity.
         groupAttr: '',               // attribute of groupEntity to use as label
         labelWidth: 4,
 
         //Local variable
-        _contextObj: null,          // Object in the dataview 
+        _contextObj: null,          // Object in the dataview
         _optionIds: [],
         _options: {},
         _groupIds: [],
@@ -67,14 +67,14 @@ define([
             this._groupReference = this.groupEntity.split("/")[0];
             this._groupEntity = this.groupEntity.split("/")[1];
 
-            this._setWidgetidAttr(); 
+            this._setWidgetidAttr();
 
             this._renderLabel();
         },
 
         update: function (obj, callback) {
             // Don't really want to depend on context
-            logger.debug(this.id + ".update"); 
+            logger.debug(this.id + ".update");
 
             if(obj){
                 this._contextObj = obj;
@@ -92,7 +92,7 @@ define([
         },
 
         uninitialize: function(){
-            logger.debug(this.id + ".uninit"); 
+            logger.debug(this.id + ".uninit");
             this._contextObj = null;
         },
 
@@ -106,7 +106,7 @@ define([
                     guid: this._contextObj.getGuid(),
                     callback: lang.hitch(this, this._updateRendering)
                 });
-            
+
 
             this.subscribe({
                     guid: this._contextObj.getGuid(),
@@ -172,7 +172,7 @@ define([
         _renderNone: function(){
              if(this.selectnode){
                 domConstruct.destroy(this.selectnode);
-            }             
+            }
             if(this.viewnode){
                 domConstruct.destroy(this.viewnode);
             }
@@ -205,9 +205,9 @@ define([
 
             var groupKeys = this._groupIds.sort();
             var optionKeys = this._optionIds.sort();
-            
+
             dojoArray.forEach(groupKeys, function(groupKey){
-                var groupNode = domConstruct.create("optgroup", 
+                var groupNode = domConstruct.create("optgroup",
                         {label: this._groups[groupKey].get(this.groupAttr)
                         }, this.selectnode);
 
@@ -216,8 +216,8 @@ define([
                 }, this);
 
                 dojoArray.forEach(groupOptionKeys, function(optionKey){
-                    domConstruct.create("option", 
-                        {innerHTML: this._options[optionKey].get(this.optionAttr), 
+                    domConstruct.create("option",
+                        {innerHTML: this._options[optionKey].get(this.optionAttr),
                             value: optionKey
                     }, groupNode);
                 }, this);
@@ -228,10 +228,10 @@ define([
 
         _updateRendering: function(){
             if(this._contextObj){
-                var selected = this._contextObj.get(this._optionReference); 
-                
+                var selected = this._contextObj.get(this._optionReference);
+
                 if(this._attrEditable){
-                    this.selectnode.value = selected; //Can selected ever be null or undefined? 
+                    this.selectnode.value = selected; //Can selected ever be null or undefined?
                 }
                 else if (this._attrVisible){
                     var displayString = selected.length ? mxDom.escapeString(this._options[selected].get(this.optionAttr)) : "";
@@ -245,6 +245,22 @@ define([
 
             if(option != this._contextObj.get(this._optionReference)){
                 this._contextObj.set(this._optionReference, option);
+                if(this.onChangeMicroflow){
+                    this._execMF(this._contextObj, this.onChangeMicroflow);
+                }
+            }
+        },
+
+        _execMF: function (obj, mf) {
+            if (mf) {
+                var params = {
+                    applyto: "selection",
+                    guids: []
+                };
+                if (obj) {
+                    params.guids = [obj.getGuid()];
+                }
+                mx.ui.action(mf, {params: params}, this);
             }
         }
 

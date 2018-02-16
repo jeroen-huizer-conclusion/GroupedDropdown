@@ -41,5 +41,12 @@
             </attributeTypes>
         </property>
 
+        <property key="onChangeMicroflow" type="microflow" required="false">
+            <caption>Onchange Microflow</caption>
+            <category>Behavior</category>
+            <description>Microflow to trigger on change.</description>
+            <returnType type="Void" />
+        </property>
+
     </properties>
 </widget>
