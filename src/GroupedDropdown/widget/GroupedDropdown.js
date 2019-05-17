@@ -41,6 +41,7 @@ define([
         fieldLabel: '',              // label for the field
         optionEntity: '',            // entity to use as options, referenced from context.
         optionAttr: '',              // attribute of optionEntity to use as label
+        optionXPath: '',
         groupEntity: '',             // entity to group options by, referenced from optionEntity.
         groupAttr: '',               // attribute of groupEntity to use as label
         labelWidth: 4,
@@ -119,7 +120,7 @@ define([
 
         _getOptions: function(){
 
-            var xpath = "//"+this._optionEntity+""; //Constrain?
+            var xpath = "//"+this._optionEntity+this.optionXPath; //Constrain?
             var callback = lang.hitch(this, this._processOptions);
             var filter = {};//attributes: [this.optionAttr], references:[this._groupReference]};
 

@@ -41,6 +41,12 @@
             </attributeTypes>
         </property>
 
+        <property key="optionXPath" type="entityConstraint" entityProperty="optionEntity" required="false">
+            <caption>Constraint</caption>
+            <category>Basic</category>
+            <description>XPath constraint on the displayed options</description>
+        </property>
+
         <property key="onChangeMicroflow" type="microflow" required="false">
             <caption>Onchange Microflow</caption>
             <category>Behavior</category>
