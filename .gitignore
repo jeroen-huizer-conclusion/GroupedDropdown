@@ -8,6 +8,7 @@ test/**/.svn/
 test/**/.classpath
 test/**/.project
 test/**/*.log
+test/**/GPUCache
 node_modules/*
 *.launch
 *.tmp
