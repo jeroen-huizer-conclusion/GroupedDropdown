@@ -121,7 +121,7 @@ define([
 
             var xpath = "//"+this._optionEntity+""; //Constrain?
             var callback = lang.hitch(this, this._processOptions);
-            var filter = {attributes: [this.optionAttr]};
+            var filter = {};//attributes: [this.optionAttr], references:[this._groupReference]};
 
             mx.data.get({xpath: xpath, callback: callback, filter: filter});
         },
@@ -141,7 +141,7 @@ define([
 
 
             var callback = lang.hitch(this, this._processGroups);
-            var filter = {attributes: [this.groupAttr]};
+            var filter = {};//{attributes: [this.groupAttr]};
 
             mx.data.get({guids: this._groupIds, callback: callback, filter: filter});
         },
