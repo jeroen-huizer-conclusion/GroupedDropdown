@@ -23,7 +23,7 @@ This widget groups dropdown values by a specified reference and displays group l
 Add the .mpk in dist to your project or build it yourself using:
 
 ```
-gulp build
+gulp compress
 ```
 
 Add the widget to a dataview. Select the attribute that you want to create a dropdown for. Select an association to group by.
