@@ -244,6 +244,10 @@ define([
         _setOption: function(event){
             var option = event.target.value;
 
+            if(option && option === this.emptyvalue.value){
+              option = null;
+            }
+
             if(option != this._contextObj.get(this._optionReference)){
                 this._contextObj.set(this._optionReference, option);
                 if(this.onChangeMicroflow){
