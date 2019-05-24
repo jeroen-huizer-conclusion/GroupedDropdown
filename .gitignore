@@ -9,6 +9,7 @@ test/**/.classpath
 test/**/.project
 test/**/*.log
 test/**/GPUCache
+test/**/widgets
 node_modules/*
 *.launch
 *.tmp
