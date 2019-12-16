@@ -5,20 +5,16 @@
   "license": "Apache License, Version 2.0, January 2004",
   "author": "Jeroen Huizer",
   "private": true,
-  "dependencies": {
-    "npm": "^6.13.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "del": "^2.2.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-if": "^2.0.1",
     "gulp-intercept": "^0.1.0",
     "gulp-json-transform": "^0.4.2",
     "gulp-newer": "^1.3.0",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.2.0",
-    "lodash": ">=4.17.13",
-    "lodash.template": "^4.5.0",
     "widgetbuilder-gulp-helper": "https://github.com/JelteMX/widgetbuilder-gulp-helper/archive/1.0.1.tar.gz",
     "yargs": "^6.0.0"
   },
